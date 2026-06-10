@@ -1,9 +1,0 @@
-# Enable runtime power management for NVIDIA GPU
-ACTION=="add|bind", SUBSYSTEM=="pci", DRIVERS=="nvidia", \
-    ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", \
-    TEST=="power/control", ATTR{power/control}="auto"
-
-# Restore full power on unbind
-ACTION=="remove|unbind", SUBSYSTEM=="pci", DRIVERS=="nvidia", \
-    ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", \
-    TEST=="power/control", ATTR{power/control}="on"
